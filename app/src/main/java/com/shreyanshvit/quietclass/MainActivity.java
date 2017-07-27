@@ -22,7 +22,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     Button mStart, mStop;
-    Vibrator vibrator;
+
 
     private TextView textView;
     private LocationManager locationManager;
