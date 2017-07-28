@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onLocationChanged(Location location) {
                 textView.append("\n " + location.getLongitude() + " " + location.getLatitude());
-                if(location.getLongitude()>=79.158797 && location.getLongitude()<= 79.1587890 && location.getLatitude()<=12.973837 && location.getLatitude()>=12.9734119) {
+                if(location.getLongitude()>=79.163072 && location.getLongitude()<= 79.164640 && location.getLatitude()<=12.971835 && location.getLatitude()>=12.970227) {
                     audioManager.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
                 }
                 else{
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
             }
             return;
         }
-        locationManager.requestLocationUpdates("gps", 2000, 0, listener);
+        locationManager.requestLocationUpdates("gps", 500, 0, listener);
         // this code won'textView execute IF permissions are not allowed, because in the line above there is return statement.
 
     }
