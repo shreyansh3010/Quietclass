@@ -18,6 +18,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.polyak.iconswitch.IconSwitch;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,47 +30,43 @@ public class MainActivity extends AppCompatActivity {
     private TextView textView;
     private LocationManager locationManager;
     private LocationListener listener;
+    private IconSwitch iconSwitch, iconSwitch1, iconSwitch2, iconSwitch3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mStart = (Button) findViewById(R.id.start);
-        mStop = (Button) findViewById(R.id.stop);
+
         final AudioManager audioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
 
-        mStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                audioManager.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
-
-            }
-        });
-
-        mStop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                audioManager.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
-
-            }
-        });
         textView = (TextView) findViewById(R.id.textView);
+
+        iconSwitch1 = (IconSwitch) findViewById(R.id.icon_switch_1);
+
+
+        iconSwitch2 = (IconSwitch) findViewById(R.id.icon_switch_2);
+
+
+        iconSwitch3 = (IconSwitch) findViewById(R.id.icon_switch_3);
+
+
+
 
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         listener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
-                textView.append("\n " + location.getLongitude() + " " + location.getLatitude());
-                if(location.getLongitude()>=79.163072 && location.getLongitude()<= 79.164640 && location.getLatitude()<=12.971835 && location.getLatitude()>=12.970227) {
-                    audioManager.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
-                }
-                else{
-                    audioManager.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+                if(iconSwitch1.getChecked() == IconSwitch.Checked.RIGHT) {
+                    textView.append("\n " + location.getLongitude() + " " + location.getLatitude());
+                    if (location.getLongitude() >= 79.163072 && location.getLongitude() <= 79.164640 && location.getLatitude() <= 12.971835 && location.getLatitude() >= 12.970227) {
+                        audioManager.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
+                    } else {
+                        audioManager.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
 
+                    }
                 }
             }
 
@@ -90,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
         };
 
         configure_button();
+
     }
 
     @Override
@@ -106,18 +106,22 @@ public class MainActivity extends AppCompatActivity {
 
     void configure_button() {
         // first check for permissions
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) !=
-                PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this,
-                Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION,
-                                Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.INTERNET}
-                        , 10);
+        if(iconSwitch1.getChecked() == IconSwitch.Checked.RIGHT){
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) !=
+                    PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this,
+                    Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION,
+                                    Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.INTERNET}
+                            , 10);
+                }
+                return;
             }
-            return;
         }
         locationManager.requestLocationUpdates("gps", 500, 0, listener);
         // this code won'textView execute IF permissions are not allowed, because in the line above there is return statement.
 
     }
+
+
 }

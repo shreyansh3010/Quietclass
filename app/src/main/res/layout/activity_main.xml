@@ -2,45 +2,103 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:padding="20dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.shreyanshvit.quietclass.MainActivity">
 
-    <Button
-        android:id="@+id/start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:text="Start"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:id="@+id/stop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
-        android:text="Stop"
-        android:layout_below="@+id/start"
-        android:layout_alignStart="@+id/start" />
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/stop"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="45dp">
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:gravity="center"
-            android:text="Coordinates: "
-            android:textSize="30sp" />
-    </ScrollView>
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="5dp">
 
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="SJT"
+                android:textSize="25sp" />
+
+            <com.polyak.iconswitch.IconSwitch
+                android:id="@+id/icon_switch_1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:isw_icon_left="@drawable/ic_2"
+                app:isw_icon_right="@drawable/ic_action_name" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="TT"
+                android:textSize="25sp" />
+
+            <com.polyak.iconswitch.IconSwitch
+                android:id="@+id/icon_switch_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:isw_icon_left="@drawable/ic_2"
+                app:isw_icon_right="@drawable/ic_action_name" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="GDN"
+                android:textSize="25sp" />
+
+            <com.polyak.iconswitch.IconSwitch
+                android:id="@+id/icon_switch_3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:isw_icon_left="@drawable/ic_2"
+                app:isw_icon_right="@drawable/ic_action_name" />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="45dp">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:gravity="center"
+                android:text="Coordinates: "
+                android:textSize="30sp" />
+        </ScrollView>
+
+    </LinearLayout>
 
 
 </RelativeLayout>
