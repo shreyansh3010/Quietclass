@@ -104,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
     void configure_button() {
         // first check for permissions
         if(iconSwitch1.getChecked() == IconSwitch.Checked.RIGHT){
