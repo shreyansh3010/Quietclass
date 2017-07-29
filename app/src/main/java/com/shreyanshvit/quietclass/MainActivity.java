@@ -24,13 +24,13 @@ import com.polyak.iconswitch.IconSwitch;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button mStart, mStop;
+
 
 
     private TextView textView;
     private LocationManager locationManager;
     private LocationListener listener;
-    private IconSwitch iconSwitch, iconSwitch1, iconSwitch2, iconSwitch3;
+    private IconSwitch iconSwitch1, iconSwitch2, iconSwitch3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,11 +59,33 @@ public class MainActivity extends AppCompatActivity {
         listener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
-                if(iconSwitch1.getChecked() == IconSwitch.Checked.RIGHT) {
-                    textView.append("\n " + location.getLongitude() + " " + location.getLatitude());
+
+                if(iconSwitch1.getChecked() == IconSwitch.Checked.RIGHT || iconSwitch2.getChecked() == IconSwitch.Checked.RIGHT || iconSwitch3.getChecked() == IconSwitch.Checked.RIGHT){
                     if (location.getLongitude() >= 79.163072 && location.getLongitude() <= 79.164640 && location.getLatitude() <= 12.971835 && location.getLatitude() >= 12.970227) {
-                        audioManager.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
-                    } else {
+                        if(iconSwitch1.getChecked() == IconSwitch.Checked.RIGHT) {
+                            audioManager.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
+                        }
+                        else{
+                            audioManager.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+                        }
+                    }
+                    else if (location.getLongitude() >= 79.158825 && location.getLongitude() <= 79.160177 && location.getLatitude() <= 12.971118 && location.getLatitude() >= 12.970156) {
+                        if(iconSwitch2.getChecked() == IconSwitch.Checked.RIGHT) {
+                            audioManager.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
+                        }
+                        else{
+                            audioManager.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+                        }
+                    }
+                    else if (location.getLongitude() >= 79.154427 && location.getLongitude() <= 79.155326 && location.getLatitude() <= 12.970405 && location.getLatitude() >= 12.969775) {
+                        if(iconSwitch3.getChecked() == IconSwitch.Checked.RIGHT) {
+                            audioManager.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
+                        }
+                        else{
+                            audioManager.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+                        }
+                    }
+                    else {
                         audioManager.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
 
                     }
