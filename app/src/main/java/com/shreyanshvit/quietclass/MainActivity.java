@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    private TextView textView;
+
     private LocationManager locationManager;
     private LocationListener listener;
     private IconSwitch iconSwitch1, iconSwitch2, iconSwitch3;
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         final AudioManager audioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
 
 
-        textView = (TextView) findViewById(R.id.textView);
+
 
         iconSwitch1 = (IconSwitch) findViewById(R.id.icon_switch_1);
 

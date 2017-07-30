@@ -81,22 +81,6 @@
                 app:isw_icon_right="@drawable/ic_action_name" />
         </LinearLayout>
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="45dp">
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:gravity="center"
-                android:text="Coordinates: "
-                android:textSize="30sp" />
-        </ScrollView>
 
     </LinearLayout>
 
