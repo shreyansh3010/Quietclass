@@ -10,7 +10,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="148dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,17 +25,14 @@
                 android:id="@+id/textView2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="3"
+                android:layout_weight="1"
                 android:text="SJT"
                 android:textSize="25sp" />
 
-            <com.polyak.iconswitch.IconSwitch
+            <vn.luongvo.widget.iosswitchview.SwitchView
                 android:id="@+id/icon_switch_1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:isw_icon_left="@drawable/ic_2"
-                app:isw_icon_right="@drawable/ic_action_name" />
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"/>
         </LinearLayout>
 
         <LinearLayout
@@ -45,17 +45,14 @@
                 android:id="@+id/textView4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="3"
+                android:layout_weight="1"
                 android:text="TT"
                 android:textSize="25sp" />
 
-            <com.polyak.iconswitch.IconSwitch
+            <vn.luongvo.widget.iosswitchview.SwitchView
                 android:id="@+id/icon_switch_2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:isw_icon_left="@drawable/ic_2"
-                app:isw_icon_right="@drawable/ic_action_name" />
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"/>
         </LinearLayout>
 
         <LinearLayout
@@ -68,21 +65,30 @@
                 android:id="@+id/textView3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="3"
+                android:layout_weight="1"
                 android:text="GDN"
                 android:textSize="25sp" />
 
-            <com.polyak.iconswitch.IconSwitch
+            <vn.luongvo.widget.iosswitchview.SwitchView
                 android:id="@+id/icon_switch_3"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:isw_icon_left="@drawable/ic_2"
-                app:isw_icon_right="@drawable/ic_action_name" />
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"/>
         </LinearLayout>
 
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="Quiteclass Beta v0.1"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold|italic" />
 
 
 </RelativeLayout>
