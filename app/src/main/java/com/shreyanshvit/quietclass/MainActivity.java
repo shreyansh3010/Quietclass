@@ -1,10 +1,14 @@
 package com.shreyanshvit.quietclass;
 
 import android.Manifest;
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -17,17 +21,22 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.polyak.iconswitch.IconSwitch;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import vn.luongvo.widget.iosswitchview.SwitchView;
 
 import static android.R.id.toggle;
+import static android.view.View.VISIBLE;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,13 +46,12 @@ public class MainActivity extends AppCompatActivity {
 
     private LocationManager locationManager;
     private LocationListener listener;
-
-
     private SwitchView  iconSwitch1, iconSwitch2, iconSwitch3;;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
 
 
@@ -54,6 +62,18 @@ public class MainActivity extends AppCompatActivity {
         iconSwitch1 = (SwitchView) findViewById(R.id.icon_switch_1);
         iconSwitch2 = (SwitchView) findViewById(R.id.icon_switch_2);
         iconSwitch3 = (SwitchView) findViewById(R.id.icon_switch_3);
+
+
+
+
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.custom);
+        dialog.setCanceledOnTouchOutside(false);
+        TextView text = (TextView) dialog.findViewById(R.id.custom_text);
+        text.setText("Configuring...");
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.getWindow().setLayout(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
 
         SharedPreferences sharedPreferences = getSharedPreferences("com.shreyanshvit.quietclass", MODE_PRIVATE);
         final SharedPreferences.Editor preferences = sharedPreferences.edit();
@@ -135,6 +155,8 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                 }
+
+                dialog.dismiss();
             }
 
             @Override
@@ -156,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
         };
 
         configure_button();
-
+        dialog.show();
     }
 
     @Override
