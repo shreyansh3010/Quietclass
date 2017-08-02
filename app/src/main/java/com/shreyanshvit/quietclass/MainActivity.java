@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
     private LocationManager locationManager;
     private LocationListener listener;
-    private SwitchView  iconSwitch1, iconSwitch2, iconSwitch3;;
+    private SwitchView  iconSwitch1, iconSwitch2, iconSwitch3, iconSwitch4, iconSwitch5, iconSwitch6, iconSwitch7;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +62,10 @@ public class MainActivity extends AppCompatActivity {
         iconSwitch1 = (SwitchView) findViewById(R.id.icon_switch_1);
         iconSwitch2 = (SwitchView) findViewById(R.id.icon_switch_2);
         iconSwitch3 = (SwitchView) findViewById(R.id.icon_switch_3);
+        iconSwitch4 = (SwitchView) findViewById(R.id.icon_switch_4);
+        iconSwitch5 = (SwitchView) findViewById(R.id.icon_switch_5);
+        iconSwitch6 = (SwitchView) findViewById(R.id.icon_switch_6);
+        iconSwitch7 = (SwitchView) findViewById(R.id.icon_switch_7);
 
 
 
@@ -80,6 +84,10 @@ public class MainActivity extends AppCompatActivity {
         iconSwitch1.setChecked(sharedPreferences.getBoolean("isChecked1",false));
         iconSwitch2.setChecked(sharedPreferences.getBoolean("isChecked2",false));
         iconSwitch3.setChecked(sharedPreferences.getBoolean("isChecked3",false));
+        iconSwitch4.setChecked(sharedPreferences.getBoolean("isChecked4",false));
+        iconSwitch5.setChecked(sharedPreferences.getBoolean("isChecked5",false));
+        iconSwitch6.setChecked(sharedPreferences.getBoolean("isChecked6",false));
+        iconSwitch7.setChecked(sharedPreferences.getBoolean("isChecked7",false));
 
 
         iconSwitch1.setOnCheckedChangeListener(new SwitchView.OnCheckedChangeListener() {
@@ -118,6 +126,54 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        iconSwitch4.setOnCheckedChangeListener(new SwitchView.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(SwitchView switchView, boolean b) {
+                if(iconSwitch4.isChecked()){
+                    preferences.putBoolean("isChecked4",true);
+                }else {
+                    preferences.putBoolean("isChecked4",false);
+                }
+                preferences.commit();
+            }
+        });
+
+        iconSwitch5.setOnCheckedChangeListener(new SwitchView.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(SwitchView switchView, boolean b) {
+                if(iconSwitch5.isChecked()){
+                    preferences.putBoolean("isChecked5",true);
+                }else {
+                    preferences.putBoolean("isChecked5",false);
+                }
+                preferences.commit();
+            }
+        });
+
+        iconSwitch6.setOnCheckedChangeListener(new SwitchView.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(SwitchView switchView, boolean b) {
+                if(iconSwitch6.isChecked()){
+                    preferences.putBoolean("isChecked6",true);
+                }else {
+                    preferences.putBoolean("isChecked6",false);
+                }
+                preferences.commit();
+            }
+        });
+
+        iconSwitch7.setOnCheckedChangeListener(new SwitchView.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(SwitchView switchView, boolean b) {
+                if(iconSwitch7.isChecked()){
+                    preferences.putBoolean("isChecked7",true);
+                }else {
+                    preferences.putBoolean("isChecked7",false);
+                }
+                preferences.commit();
+            }
+        });
+
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         listener = new LocationListener() {
             @Override
@@ -143,6 +199,30 @@ public class MainActivity extends AppCompatActivity {
                     }
                     else if (location.getLongitude() >= 79.154427 && location.getLongitude() <= 79.155326 && location.getLatitude() <= 12.970405 && location.getLatitude() >= 12.969775) {
                         if(iconSwitch3.isChecked()) {
+                            audioManager.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
+                        }
+                        else{
+                            audioManager.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+                        }
+                    }
+                     else if (location.getLongitude() >= 79.156563 && location.getLongitude() <= 79.157107 && location.getLatitude() <= 12.969590 && location.getLatitude() >= 12.969088) {
+                        if(iconSwitch4.isChecked()) {
+                            audioManager.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
+                        }
+                        else{
+                            audioManager.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+                        }
+                    }
+                    else if (location.getLongitude() >= 79.157228 && location.getLongitude() <= 79.158226 && location.getLatitude() <= 12.969616 && location.getLatitude() >= 12.968826) {
+                        if(iconSwitch5.isChecked()) {
+                            audioManager.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
+                        }
+                        else{
+                            audioManager.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+                        }
+                    }
+                    else if (location.getLongitude() >= 79.155385 && location.getLongitude() <= 79.156439 && location.getLatitude() <= 12.969571 && location.getLatitude() >= 12.968847) {
+                        if(iconSwitch6.isChecked()) {
                             audioManager.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
                         }
                         else{

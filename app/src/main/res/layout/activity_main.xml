@@ -13,7 +13,7 @@
         android:orientation="vertical"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="148dp">
+        android:layout_marginTop="102dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -56,24 +56,104 @@
         </LinearLayout>
 
         <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="GDN"
+            android:textSize="25sp" />
+
+        <vn.luongvo.widget.iosswitchview.SwitchView
+            android:id="@+id/icon_switch_3"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:padding="5dp">
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/textView6"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="GDN"
+                android:text="Library"
                 android:textSize="25sp" />
 
             <vn.luongvo.widget.iosswitchview.SwitchView
-                android:id="@+id/icon_switch_3"
+                android:id="@+id/icon_switch_4"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="SMV"
+                android:textSize="25sp" />
+
+            <vn.luongvo.widget.iosswitchview.SwitchView
+                android:id="@+id/icon_switch_5"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Main Building"
+                android:textSize="25sp" />
+
+            <vn.luongvo.widget.iosswitchview.SwitchView
+                android:id="@+id/icon_switch_6"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="CDMM"
+                android:textSize="25sp" />
+
+            <vn.luongvo.widget.iosswitchview.SwitchView
+                android:id="@+id/icon_switch_7"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+
 
 
     </LinearLayout>
