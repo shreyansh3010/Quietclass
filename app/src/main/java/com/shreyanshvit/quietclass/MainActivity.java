@@ -30,6 +30,8 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.polyak.iconswitch.IconSwitch;
 import com.wang.avi.AVLoadingIndicatorView;
 
@@ -47,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
     private LocationManager locationManager;
     private LocationListener listener;
     private SwitchView  iconSwitch1, iconSwitch2, iconSwitch3, iconSwitch4, iconSwitch5, iconSwitch6, iconSwitch7;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +71,9 @@ public class MainActivity extends AppCompatActivity {
         iconSwitch6 = (SwitchView) findViewById(R.id.icon_switch_6);
         iconSwitch7 = (SwitchView) findViewById(R.id.icon_switch_7);
 
-
+        YoYo.with(Techniques.Pulse)
+                .duration(1000)
+                .playOn(findViewById(R.id.textView));
 
 
         final Dialog dialog = new Dialog(this);
@@ -179,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onLocationChanged(Location location) {
 
-                if(iconSwitch1.isChecked() || iconSwitch2.isChecked()|| iconSwitch3.isChecked()){
+                if(iconSwitch1.isChecked() || iconSwitch2.isChecked()|| iconSwitch3.isChecked() || iconSwitch4.isChecked() || iconSwitch5.isChecked()|| iconSwitch6.isChecked() || iconSwitch7.isChecked()){
                     if (location.getLongitude() >= 79.163072 && location.getLongitude() <= 79.164640 && location.getLatitude() <= 12.971835 && location.getLatitude() >= 12.970227) {
                         if(iconSwitch1.isChecked()) {
                             audioManager.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
@@ -237,6 +243,10 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 dialog.dismiss();
+                YoYo.with(Techniques.Pulse)
+                        .duration(1000)
+                        .repeat(5)
+                        .playOn(findViewById(R.id.textView));
             }
 
             @Override
@@ -288,7 +298,7 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
 
-        locationManager.requestLocationUpdates("gps", 500, 0, listener);
+        locationManager.requestLocationUpdates("gps", 200, 0, listener);
         // this code won'textView execute IF permissions are not allowed, because in the line above there is return statement.
 
     }

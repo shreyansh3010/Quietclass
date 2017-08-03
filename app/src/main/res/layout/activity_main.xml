@@ -165,7 +165,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:text="Quiteclass Beta v0.1"
+        android:text="Vit-Silent Beta v1.0"
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="bold|italic" />
